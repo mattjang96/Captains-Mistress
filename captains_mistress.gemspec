@@ -6,13 +6,12 @@ require 'captains_mistress/version'
 Gem::Specification.new do |spec|
   spec.name          = 'captains_mistress'
   spec.version       = CaptainsMistress::VERSION
-  spec.authors       = ['TODO: Write your name']
-  spec.email         = ['TODO: Write your email address']
+  spec.authors       = ['Ian James']
+  spec.email         = ['ian@ioffer.com']
 
-  spec.summary       = 'TODO: Write a short summary, because Rubygems'\
-                       ' requires one.'
-  spec.description   = 'TODO: Write a longer description or delete this line.'
-  spec.homepage      = 'TODO: Put your gem\'s website or public repo URL here.'
+  spec.summary       = 'Captain\'s Mistress.'
+  spec.description   = 'Captain\'s Mistress, otherwise known as Connect Four.'
+  spec.homepage      = 'http://ioffer.com'
 
   # Prevent pushing this gem to RubyGems.org by setting 'allowed_push_host', or
   # delete this section to allow pushing this gem to any host.
