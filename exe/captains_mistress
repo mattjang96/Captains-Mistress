@@ -1,0 +1,28 @@
+#!/usr/bin/env ruby
+
+require 'optparse'
+require 'captains_mistress/app'
+
+args = ARGV.clone
+
+options = {}
+
+OptionParser.new do |opts|
+  opts.banner = 'Usage: captains_mistress [options]'
+
+  opts.on('-v', '--[no-]verbose', 'Run verbosely') do |v|
+    options[:verbose] = v
+  end
+
+  opts.on_tail('-h', '--help', 'Show this message') do
+    puts opts
+    exit
+  end
+
+  opts.on_tail('--version', 'Show version') do
+    puts CaptainsMistress::VERSION
+    exit
+  end
+end.parse!(args)
+
+CaptainsMistress::App.new(options).run
