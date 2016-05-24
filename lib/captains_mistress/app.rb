@@ -11,6 +11,7 @@ module CaptainsMistress
     end
 
     def run
+      # You should implement this method.
       raise 'Not implemented'
     end
   end
