@@ -8,7 +8,7 @@ def start(every_player, width=7, height=6)
 end
 
 def player_count
-    print "Enter player count:\n> "
+    print "Enter player count (2 to 10):\n> "
     response = gets.chomp.to_i
     until response >= 2 && response <= 10
       print "Please choose between 2 to 10 players. Try again:\n> "
@@ -17,9 +17,14 @@ def player_count
     response
 end
 
-def player_names(num)
+def player_names(num, every_player)
     print "Player #{num+1}, enter your name:\n> "
-    gets.chomp
+    new_name = gets.chomp
+    until !every_player.include?(new_name)
+        print "That name has already been used. Please try again:\n> "
+        new_name = gets.chomp
+    end
+    new_name
 end
 
 def board_size
@@ -37,7 +42,7 @@ def play_game
     count = player_count
     every_player = []
     count.times do |player|
-        every_player.push(player_names(player))
+        every_player.push(player_names(player, every_player))
     end
     size = board_size
     width = size[1]
