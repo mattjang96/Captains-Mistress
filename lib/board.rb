@@ -91,7 +91,7 @@ class Board
   ### Horizontal connect 4 ###
   def horizontal_connect_4
     0.upto(width-4) do |col|
-      0.upto(height-4) do |row|
+      0.upto(height-1) do |row|
         return true if @board[col][row] != '.' && @board[col][row] == @board[col + 1][row] && @board[col + 1][row] == @board[col + 2][row] && board[col + 2][row] == board[col + 3][row] # check all adjacent grids horizontally (x)
       end
     end
