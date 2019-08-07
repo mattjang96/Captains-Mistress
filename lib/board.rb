@@ -12,7 +12,7 @@ class Board
     @board = Array.new(width) { Array.new(height, '.') }
     @column_options = [*1..height] 
     @width, @height, @all_players = width, height, all_players 
-    @all_player_icons = ['💎','💜','🌺', '🌸', '🧲','💊','🎀','🎈','🧸','🌼']
+    @all_player_icons = ['🧸','💜','🌼', '🌸', '🧲','💊','🎀','🎈','💎','🌺']
   end
 
   def play
