@@ -31,7 +31,7 @@ def board_size
     print "Specify the board width and height (e.g. '7 6'):\n> "
     answer = gets.chomp
     return [7, 6] if answer == '' 
-    until answer.split.map(&:to_i)[0] > 4 && answer.split.map(&:to_i)[1] > 4 && answer.split.map(&:to_i).length == 2
+    until answer.split.map(&:to_i).length == 2 && answer.split.map(&:to_i)[0] > 4 && answer.split.map(&:to_i)[1] > 4
         print "Please enter a width and height each greater than 4. Try again:\n> "
         answer = gets.chomp
     end
