@@ -12,7 +12,8 @@ module CaptainsMistress
 
     def run
       # You should implement this method.
-      raise 'Not implemented'
+      # raise 'Not implemented'
+      # play_game
     end
   end
 end
