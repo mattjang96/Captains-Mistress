@@ -3,7 +3,7 @@ require_relative 'board'
 require_relative 'player'
 
 # A simple game of Captain's Mistress.
-def start(every_player, width=7, height=6)
+def start(every_player, width, height)
     Board.new(every_player, width, height)
 end
 
@@ -45,8 +45,8 @@ def play_game
         every_player.push(player_names(player, every_player))
     end
     size = board_size
-    width = size[1]
-    height = size[0]
+    width = size[0]
+    height = size[1]
     new_game = start(every_player, width, height)
     new_game.play
 end

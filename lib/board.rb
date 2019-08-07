@@ -6,11 +6,11 @@ require_relative 'player'
 class Board
   attr_accessor :board, :all_players, :round, :column_options, :width, :height
 
-  def initialize(all_players, width = 7, height = 6)
+  def initialize(all_players, width, height)
     @round = 1
     @current_player = 0
     @board = Array.new(width) { Array.new(height, '.') }
-    @column_options = [*1..height] 
+    @column_options = [*1..width] 
     @width, @height, @all_players = width, height, all_players 
     @all_player_icons = ['🧸','💜','🌼', '💎', '🧲','💊','🎀','🎈','🌸','🌺']
   end
@@ -23,11 +23,11 @@ class Board
 
   ### Renders the board - is called after every turn until game is won/drawn ###
   def render
-    height.times do |row|
-      @board[row] = []
+    width.times do |col|
+      @board[col] = []
 
-      width.times do
-        @board[row] << '.'
+      height.times do
+        @board[col] << '.'
       end
     end
   end
@@ -35,8 +35,8 @@ class Board
   def print_board
     puts "----------\nWelcome to Captain's Mistress\n----------"
     render_board = "\n"
-    for row in (width-1).downto(0)
-      (0..height-1).each do |column|
+    for row in (height-1).downto(0)
+      (0..width-1).each do |column|
           render_board << " #{@board[column][row]} "
       end
       render_board << "\n"
@@ -90,7 +90,7 @@ class Board
 
   ### Horizontal connect 4 ###
   def horizontal_connect_4
-    0.upto(width-3) do |col|
+    0.upto(width-2) do |col|
       0.upto(3) do |row|
         return true if @board[col][row] != '.' && @board[col][row] == @board[col + 1][row] && @board[col + 1][row] == @board[col + 2][row] && board[col + 2][row] == board[col + 3][row] # check all adjacent grids horizontally (x)
       end
@@ -101,7 +101,7 @@ class Board
   ### Vertical connect 4 ###
   def vertical_connect_4
     0.upto(width-1) do |col|
-      0.upto(height - 3) do |row|
+      0.upto(2) do |row|
         return true if @board[col][row] != '.' && @board[col][row] == @board[col][row + 1] && @board[col][row + 1] == @board[col][row + 2] && @board[col][row + 2] == @board[col][row + 3] # check all adjacent grids vertically (row)
       end
     end
@@ -110,8 +110,8 @@ class Board
 
   ## Diagonal connect 4 ###
   def diagonal_connect_4
-    0.upto(width - 3) do |col|
-      0.upto(height - 3) do |row|
+    0.upto(3) do |col|
+      0.upto(2) do |row|
         return true if @board[col][row] != '.' && @board[col][row] == @board[col + 1][row + 1] && @board[col + 1][row + 1] == @board[col + 2][row + 2] && @board[col + 2][row + 2] == @board[col + 3][row + 3]
       end
 
