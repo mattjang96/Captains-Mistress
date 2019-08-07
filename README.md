@@ -28,4 +28,4 @@ Run the command line appplication with:
 
 Or, if the gem is not installated, run from the gem directory:
 
-    $ ruby -Ilib bin/captains_mistress
+    $ ruby -Ilib exe/captains_mistress
